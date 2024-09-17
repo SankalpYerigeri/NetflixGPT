@@ -1,6 +1,6 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Header from "./components/Header";
 import Browse from "./components/Browse";
 import Login from "./components/Login";
@@ -10,8 +10,7 @@ const AppLayout = () =>
 {
     return( <>
     <div className="app">
-        <Header/>
-        <Body/>
+        <Outlet/>
     </div>
     </>)
 }
