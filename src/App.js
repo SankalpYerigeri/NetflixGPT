@@ -1,16 +1,36 @@
-import React from "react"
+import React, { useEffect } from "react"
 import ReactDOM from "react-dom/client"
-import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Outlet, RouterProvider, useNavigate } from "react-router-dom";
 import Header from "./components/Header";
 import Browse from "./components/Browse";
 import Login from "./components/Login";
 import Body from "./components/Body";
 import ReactPage from "./components/ReactPage";
-import { Provider } from "react-redux";
+import { Provider, useDispatch } from "react-redux";
 import appStore from "./utils/appStore";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "./utils/firebase";
+import { addUser, removeUser } from "./utils/userSlice";
 
 const AppLayout = () =>
 {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    useEffect(()=>
+    {
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+              
+              const {uid, email, displayName} = user;
+              dispatch(addUser({uid:uid, email:email, displayName:displayName}));
+              navigate("/browse");
+            } else {
+              dispatch(removeUser());
+            }
+          });
+    }, []);
+
     return( <>
     <div className="app">
         <Provider store={appStore}>
@@ -27,11 +47,15 @@ const appRouter = createBrowserRouter([
         children : [
             {
                 path : "/",
-                element : <Browse/>
+                element : <Body/>
             },
             {
                 path : "/Login",
                 element : <Login/>
+            },
+            {
+                path : "/browse",
+                element : <Browse/>
             }
 
         ]
