@@ -6,12 +6,16 @@ import Browse from "./components/Browse";
 import Login from "./components/Login";
 import Body from "./components/Body";
 import ReactPage from "./components/ReactPage";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
 
 const AppLayout = () =>
 {
     return( <>
     <div className="app">
+        <Provider store={appStore}>
         <Outlet/>
+        </Provider>
     </div>
     </>)
 }
