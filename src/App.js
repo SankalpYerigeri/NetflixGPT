@@ -15,7 +15,6 @@ import { addUser, removeUser } from "./utils/userSlice";
 const AppLayout = () =>
 {
     const dispatch = useDispatch();
-    const navigate = useNavigate();
 
     useEffect(()=>
     {
@@ -24,20 +23,19 @@ const AppLayout = () =>
               
               const {uid, email, displayName} = user;
               dispatch(addUser({uid:uid, email:email, displayName:displayName}));
-              navigate("/browse");
             } else {
               dispatch(removeUser());
             }
           });
     }, []);
 
-    return( <>
-    <div className="app">
-        <Provider store={appStore}>
-        <Outlet/>
-        </Provider>
+    return( 
+    
+    <div className="app">        
+        <Outlet/>        
     </div>
-    </>)
+    
+    )
 }
 
 const appRouter = createBrowserRouter([
@@ -63,4 +61,7 @@ const appRouter = createBrowserRouter([
 ])
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<RouterProvider router={appRouter}/>)
+root.render(<Provider store={appStore}>
+<RouterProvider router={appRouter}/>
+</Provider>
+)
