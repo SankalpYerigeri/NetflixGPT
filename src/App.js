@@ -15,16 +15,19 @@ import { addUser, removeUser } from "./utils/userSlice";
 const AppLayout = () =>
 {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     useEffect(()=>
     {
         onAuthStateChanged(auth, (user) => {
             if (user) {
               
-              const {uid, email, displayName} = user;
-              dispatch(addUser({uid:uid, email:email, displayName:displayName}));
+              const {uid, email, displayName, photoURL} = user;
+              dispatch(addUser({uid:uid, email:email, displayName:displayName, photoURL:photoURL}));
+              navigate("/browse");
             } else {
               dispatch(removeUser());
+              navigate("/login");
             }
           });
     }, []);
