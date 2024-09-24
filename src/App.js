@@ -19,7 +19,7 @@ const AppLayout = () =>
 
     useEffect(()=>
     {
-        onAuthStateChanged(auth, (user) => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
               
               const {uid, email, displayName, photoURL} = user;
@@ -30,6 +30,8 @@ const AppLayout = () =>
               navigate("/login");
             }
           });
+
+          return () => unsubscribe();
     }, []);
 
     return( 
