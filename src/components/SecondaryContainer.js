@@ -1,10 +1,13 @@
+
+
 const SecondaryContainer = () =>
 {
     return (
         <div>
-            SecondaryContainer
+            Secondry container
         </div>
     )
+    
 }
 
 export default SecondaryContainer;

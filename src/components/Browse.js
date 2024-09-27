@@ -10,11 +10,13 @@ const Browse = () =>
 {
     useNowPlayingMovies();
 
-    return <div>
-        <Header/>
-        <MainContainer/>
-        <SecondaryContainer/>
+    return(
+        <div>
+            <Header/>
+            <MainContainer/>
+            <SecondaryContainer/>
         </div>
+    )
 };
 
 export default Browse;
