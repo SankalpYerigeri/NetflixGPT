@@ -5,6 +5,7 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfi
 import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { BG_URL } from "../utils/constants";
 
 
 
@@ -82,7 +83,7 @@ const Login = () =>
         <>
         <div className="absolute">
             <Header/>
-            <img src="https://assets.nflxext.com/ffe/siteui/vlv3/85ff76db-39e5-423a-afbc-97d3e74db71b/null/IN-en-20240909-TRIFECTA-perspective_b22117e0-4610-4d57-a695-20f77d241a4a_large.jpg"/>
+            <img src={BG_URL}/>
         </div>
         <form onSubmit={(e)=>e.preventDefault()} className="w-3/12 absolute p-12 bg-black my-36 mx-auto right-0 left-0 text-white bg-opacity-80">
             <h1 className="font-bold text-3xl py-4">{isLogin ? "Sign In" : "Sign Up"}</h1>
