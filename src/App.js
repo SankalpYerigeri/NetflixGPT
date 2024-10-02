@@ -12,6 +12,8 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./utils/firebase";
 import { addUser, removeUser } from "./utils/userSlice";
 
+
+
 const AppLayout = () =>
 {
     const dispatch = useDispatch();
@@ -61,7 +63,8 @@ const appRouter = createBrowserRouter([
                 element : <Browse/>
             }
 
-        ]
+        ],
+        errorElement : <Error/>
     }
 ])
 
