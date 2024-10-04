@@ -5,12 +5,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleGptSearch } from "../utils/gptSlice";
 import { SUPPORTED_LANGUAGES } from "../utils/constants";
 import { changeLanguage } from "../utils/langSlice";
+import { useEffect } from "react";
+import { GoogleGenerativeAI } from "@google/generative-ai";
+import { GEMINI_KEY } from "../utils/constants";
 
 
 
 
 const Header = () =>
     {
+        
+
         const user = useSelector((store) => store.user);
         const gptSearch = useSelector((store) => store.gptSlice.toggleGptSearch);
         
@@ -33,6 +38,13 @@ const Header = () =>
         {
           dispatch(changeLanguage(e.target.value));
         }
+
+        
+
+        // useEffect(()=>
+        // {
+        //     integrateAi();
+        // }, []);
 
         
 
