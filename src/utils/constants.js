@@ -13,7 +13,9 @@ export const BG_URL = "https://assets.nflxext.com/ffe/siteui/vlv3/85ff76db-39e5-
 export const SUPPORTED_LANGUAGES = [
   {identifier : "en", name : "English"},
   {identifier : "kann", name : "Kannada"}
-]
+];
+
+export const GEMINI_KEY = "AIzaSyBcVzI8mVE8YbTd4gJ8OaVt8gdAuAbY2U8";
 
 
 
