@@ -1,4 +1,4 @@
-# NetflixGPT
+### NetflixGPT
 
 - Created a app through parcel package 
 - Configured TailwindCSS
