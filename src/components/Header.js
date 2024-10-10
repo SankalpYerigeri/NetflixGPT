@@ -48,8 +48,8 @@ const Header = () =>
 
         
 
-        return <div className="fixed w-screen bg-gradient-to-b from-black px-8 py-2 z-10 flex flex-wrap justify-between">
-            <img className="w-44"
+        return <div className="fixed w-screen bg-gradient-to-b from-black px-8 py-2 z-10 flex flex-wrap flex-col  md:flex-row justify-between">
+            <img className="w-44 mx-auto md:mx-0"
              src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"/>
              {user && <div className="text-white flex">
                {gptSearch && (<select className="bg-gray-700 text-white p-2 m-2" onChange={handleLangChange}>
@@ -61,7 +61,7 @@ const Header = () =>
                 onClick={handleGptSearchClick}>
                   {gptSearch ? "Home Page" : "GPT Search"}
                   </button>
-                <img className="w-20 h-20" src={user?.photoURL}/>
+                <img className="hidden md:block w-20 h-20" src={user?.photoURL}/>
                 <button onClick={handleSignOut} className="bg-black text-white roun" >Sign out</button>
              </div>}
         </div>
